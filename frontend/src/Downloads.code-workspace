@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Downloads"
+		},
+		{
+			"path": "../../../../Downloads/neha"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"liveServer.settings.multiRootWorkspaceName": "Downloads"
+	}
+}

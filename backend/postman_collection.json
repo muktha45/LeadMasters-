@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "LeadMasters Exam API",
+    "_postman_id": "e3b0c442-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"test@example.com\", \"password\": \"test123\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/auth/register",
+          "host": [
+            "http://localhost:8000"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "test@example.com"
+            },
+            {
+              "key": "password",
+              "value": "test123"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/auth/login",
+          "host": [
+            "http://localhost:8000"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Seed",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/dev/seed",
+          "host": [
+            "http://localhost:8000"
+          ],
+          "path": [
+            "dev",
+            "seed"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Start Exam",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/exam/start?limit=5",
+          "host": [
+            "http://localhost:8000"
+          ],
+          "path": [
+            "exam",
+            "start"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Submit",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"session_id\": 1, \"answers\": {\"1\": \"b\", \"2\": \"c\"}}"
+        }
+      }
+    },
+    {
+      "name": "Result",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/exam/result/1",
+          "host": [
+            "http://localhost:8000"
+          ],
+          "path": [
+            "exam",
+            "result",
+            "1"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
